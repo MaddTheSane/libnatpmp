@@ -208,7 +208,7 @@ NATPMP_LIBSPEC int readnatpmpresponse(natpmp_t * p, natpmpresp_t * response)
 	int n;
 	if(!p)
 		return NATPMP_ERR_INVALIDARGS;
-	n = recvfrom(p->s, buf, sizeof(buf), 0,
+	n = (int)recvfrom(p->s, buf, sizeof(buf), 0,
 	             (struct sockaddr *)&addr, &addrlen);
 	if(n<0)
 #ifdef _WIN32
